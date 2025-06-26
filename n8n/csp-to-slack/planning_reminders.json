@@ -1,0 +1,38 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "Your job, *{{ $('Set Values').item.json.jobName }}*, has been in *📝 Planning* for over 7 days. Would you like to continue working on it?"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "radio_buttons",
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "🪓 Delete it for me",
+                                "emoji": true
+                            },
+                            "value": "delete"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "😅 I'm still working on it",
+                                "emoji": true
+                            },
+                            "value": "keep"
+                        }
+                    ],
+                    "action_id": "monitor-planning-tab"
+                }
+            ]
+        }
+    ]
+}

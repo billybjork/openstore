@@ -1,0 +1,50 @@
+={
+    "🌐 % Acquisition";
+    BYROW(
+      C2:C,
+      LAMBDA(
+        thisC,
+        IF(
+          LEN(thisC),
+          IFERROR(
+            SUM(
+              FILTER(
+                'Ad-Conversions-By-User-Segment'!G2:G,
+                ISNUMBER(
+                  MATCH(
+                    'Ad-Conversions-By-User-Segment'!D2:D,
+                    UNIQUE(FILTER(Census_Meta!C2:C, Census_Meta!M2:M = thisC)),
+                    0
+                  )
+                )
+                *
+                ('Ad-Conversions-By-User-Segment'!C2:C = "prospecting")
+              )
+            )
+            /
+            SUM(
+              FILTER(
+                'Ad-Conversions-By-User-Segment'!G2:G,
+                ISNUMBER(
+                  MATCH(
+                    'Ad-Conversions-By-User-Segment'!D2:D,
+                    UNIQUE(FILTER(Census_Meta!C2:C, Census_Meta!M2:M = thisC)),
+                    0
+                  )
+                )
+                *
+                (
+                  ('Ad-Conversions-By-User-Segment'!C2:C = "prospecting")
+                  +
+                  ('Ad-Conversions-By-User-Segment'!C2:C = "existing")
+                )
+              )
+            ),
+            ""
+          ),
+          ""
+        )
+      )
+    )
+  }
+  

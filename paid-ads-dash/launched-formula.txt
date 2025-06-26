@@ -1,0 +1,40 @@
+=QUERY(
+  IF(A3 = FALSE, 'Launched_Non-SP'!B3:AY, '👋 Start Here'!B3:AY),
+  "SELECT * WHERE" &
+  IF(
+    LEN(TRIM(D2)) > 0,
+    IF(
+      LEFT(D2, 1) = "-",
+      " NOT(LOWER(D) CONTAINS LOWER('" & RIGHT(D2, LEN(D2) - 1) & "') OR LOWER(M) CONTAINS LOWER('" & RIGHT(D2, LEN(D2) - 1) & "') OR LOWER(G) CONTAINS LOWER('" & RIGHT(D2, LEN(D2) - 1) & "')) AND ",
+      " (LOWER(D) CONTAINS LOWER('" & D2 & "') OR LOWER(M) CONTAINS LOWER('" & D2 & "') OR LOWER(G) CONTAINS LOWER('" & D2 & "')) AND "
+    ),
+    ""
+  ) &
+  IF(A1 = "💼 Brand", "",
+    IF(ISNUMBER(SEARCH("DRI:", A1)), " AX = '" & TRIM(MID(A1, FIND(":", A1) + 1, LEN(A1))) & "' AND ",
+      IF(ISNUMBER(SEARCH("CL:", A1)), " AY = '" & TRIM(MID(A1, FIND(":", A1) + 1, LEN(A1))) & "' AND ", " E = '" & A1 & "' AND ")
+    )
+  ) &
+  IF(B2 <> "👤 Requester", " G = '" & B2 & "' AND ", "") &
+  IF(B3 <> "👤 Creator", " H = '" & B3 & "' AND ", "") &
+  IF(C1 <> "📺 Channel", " B = '" & C1 & "' AND ", "") &
+  IF(C2 <> "🧪 Job Type", " I = '" & C2 & "' AND ", " 1=1 AND ") &
+  IF(C3 <> "💾 Job Format", IF(C3 = "Other", " Q <> 'Video' AND Q <> 'Static' AND ", " Q = '" & C3 & "' AND "), "") &
+  IF(LEN(TRIM(D4)) > 0, " AE >= date '" & TEXT(D4, "yyyy-MM-dd") & "' AND ", "") &
+  IF(LEN(TRIM(D5)) > 0, " AE <= date '" & TEXT(D5, "yyyy-MM-dd") & "' AND ", "") &
+  IF(C5 = TRUE, " AP = '🏆' AND ", "") &
+  IF(C4 = TRUE, " AP = '🎖️' AND ", "") &
+  "1=1" &
+  IF(A5 = TRUE, " AND LOWER(C) CONTAINS LOWER('LIVE')", "") &
+  IF(LEN(TRIM(AE5)) > 0, " AND AH > " & AE5, "") &
+  IF(AE4 = "Completed Date", " ORDER BY AA DESC", "") &
+  IF(AE4 = "Spend", " ORDER BY AH DESC", "") &
+  IF(AE4 = "Est CD", " ORDER BY AI DESC", "") &
+  IF(AE4 = "Hook", " ORDER BY AJ DESC", "") &
+  IF(AE4 = "CTR", " ORDER BY AK DESC", "") &
+  IF(AE4 = "CVR", " ORDER BY AL DESC", "") &
+  IF(AE4 = "ROAS", " ORDER BY AM DESC", "") &
+  IF(AE4 = "CPA", " ORDER BY AN ASC", "") &
+  IF(AE4 = "Acquisition %", " ORDER BY AO DESC", ""),
+  0
+)

@@ -1,0 +1,54 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "{{ $json.formatEmoji }}  This *{{ $json.brandName }}* job is ready for review  {{ $json.brandEmoji }}"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "{{ $json.jobName }}",
+                        "emoji": true
+                    },
+                    "value": "click_me_123",
+                    "url": "{{ $json.reviewLink }}",
+                    "action_id": "button-action"
+                },
+                {
+                    "type": "static_select",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select a status",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":memo: Notes Given",
+                                "emoji": true
+                            },
+                            "value": "notes-given"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":white_check_mark: Approved",
+                                "emoji": true
+                            },
+                            "value": "approved"
+                        }
+                    ],
+                    "action_id": "review-notification-sm"
+                }
+            ]
+        }
+    ]
+}

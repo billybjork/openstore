@@ -1,0 +1,11 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Your #nps-promoters job has been submitted to <https://docs.google.com/spreadsheets/d/1xG4s7C3jUo6iuZGiFUgP91QXVCmKXslyx4EY6hYkmKs/edit#gid=374249809|Creative Sprint Planning>. \n\nFind your job in the *📝 Planning* tab to add any additional direction before setting to _Ready to Create_."
+			}
+		}
+	]
+}

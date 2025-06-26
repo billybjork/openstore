@@ -1,0 +1,22 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":party: New promo assets are ready for review:"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "{{ $json.eventNameInput }}",
+					"emoji": true
+				},
+				"value": "review_link",
+				"url": "{{ $json.reviewLinkInput }}",
+				"action_id": "button-action"
+			}
+		}
+	]
+}

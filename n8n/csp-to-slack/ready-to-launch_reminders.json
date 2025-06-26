@@ -1,0 +1,22 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "✅  _Reminder:_ This *{{ $('SetValues').item.json.brandName }}* job has been *Ready to Launch* for over 7 days  👀"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "{{ $('SetValues').item.json.jobName }}",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"url": "{{ $('SetValues').item.json.creativeLink }}",
+				"action_id": "button-action"
+			}
+		}
+	]
+}

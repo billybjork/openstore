@@ -1,0 +1,11 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":inbox_tray: Your asset submission will be processed in *<https://docs.google.com/spreadsheets/d/1xG4s7C3jUo6iuZGiFUgP91QXVCmKXslyx4EY6hYkmKs/edit?gid=162051327#gid=162051327|Content Delivery>*, and then delivered via #content-drops.\n\n:label: The production code is *{{ $json.productionCode }}*, which you can use for tracking purposes."
+			}
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": ":label: Daily Metadata Ingest",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":date: {{ $('Change Timezone and Format').item.json.miamiStartDate }} :arrow_right: {{ $('Change Timezone and Format').item.json.miamiEndDate }}"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":outbox_tray: {{ $('Edit Fields').item.json.numberOfAssets }} Iconik Files Updated"
+			}
+		}
+	]
+}

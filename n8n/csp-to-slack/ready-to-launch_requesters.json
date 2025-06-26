@@ -1,0 +1,23 @@
+{
+    "blocks": [
+      {
+        "type": "section",
+        "block_id": "sectionBlockWithLinkButton",
+        "text": {
+          "type": "mrkdwn",
+          "text": "{{ $('ResetValues1').item.json.formatEmoji }}  This *{{ $('ResetValues1').item.json.brandName }}* job is ready to launch  {{ $('ResetValues1').item.json.brandEmoji }}"
+        },
+        "accessory": {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "{{ $('ResetValues1').item.json.jobName }}",
+            "emoji": true
+          },
+          "value": "click_me_123",
+          "url": "{{ $('ResetValues1').item.json.creativeLink }}",
+          "action_id": "button-action"
+        }
+      }
+    ]
+  }

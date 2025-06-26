@@ -1,0 +1,63 @@
+=IF(
+    A1 = "💼 Brand",
+    QUERY(
+        'SprintPlanning-Pipeline'!A2:AE,
+        "SELECT * WHERE Col1 IS NOT NULL" &
+        IF(C1 = "👤 Requester", "", " AND Col1 <> 'Ready to Launch'") &
+        IF(C2 = "👤 Creator", "", " AND Col1 <> 'Ready to Launch'") &
+        IF(C1 = "👤 Requester", "", " AND Col5 = '" & C1 & "'") &
+        IF(C2 = "👤 Creator", "", " AND Col6 = '" & C2 & "'") &
+        IF(Z1 <> "📺 Channel", " AND (Col26 = '" & Z1 & "' OR LOWER(Col2) CONTAINS LOWER('" & Z1 & "'))", "") &
+        IF(LEN(TRIM(B2)) > 0, " AND (LOWER(Col2) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col3) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col5) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col6) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col11) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col12) CONTAINS LOWER('" & TRIM(B2) & "'))", "") &
+        " ORDER BY Col30 " & IF(AND(C1 = "👤 Requester", C2 = "👤 Creator"), "ASC", "DESC"),
+        0
+    ),
+    IF(
+        COUNTIF('SprintPlanning-Pipeline'!C2:C, A1) > 0,
+        QUERY(
+            'SprintPlanning-Pipeline'!A2:AD,
+            "SELECT * WHERE Col1 IS NOT NULL AND Col3 = '" & A1 & "'" &
+            IF(C1 = "👤 Requester", "", " AND Col1 <> 'Ready to Launch'") &
+            IF(C2 = "👤 Creator", "", " AND Col1 <> 'Ready to Launch'") &
+            IF(C1 = "👤 Requester", "", " AND Col5 = '" & C1 & "'") &
+            IF(C2 = "👤 Creator", "", " AND Col6 = '" & C2 & "'") &
+            IF(Z1 <> "📺 Channel", " AND (Col26 = '" & Z1 & "' OR LOWER(Col2) CONTAINS LOWER('" & Z1 & "'))", "") &
+            IF(LEN(TRIM(B2)) > 0, " AND (LOWER(Col2) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col3) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col5) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col6) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col11) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col12) CONTAINS LOWER('" & TRIM(B2) & "'))", "") &
+            " ORDER BY Col30 " & IF(AND(C1 = "👤 Requester", C2 = "👤 Creator"), "ASC", "DESC"),
+            0
+        ),
+        IF(
+            ISNUMBER(SEARCH("DRI:", A1)),
+            QUERY(
+                'SprintPlanning-Pipeline'!A2:AE,
+                "SELECT * WHERE " & 
+                "Col1 IS NOT NULL AND Col29 CONTAINS '" & TRIM(MID(A1, FIND(":", A1) + 1, LEN(A1))) & "'" &
+                IF(C1 = "👤 Requester", "", " AND Col1 <> 'Ready to Launch'") &
+                IF(C2 = "👤 Creator", "", " AND Col1 <> 'Ready to Launch'") &
+                IF(C1 = "👤 Requester", "", " AND Col5 = '" & C1 & "'") &
+                IF(C2 = "👤 Creator", "", " AND Col6 = '" & C2 & "'") &
+                IF(Z1 <> "📺 Channel", " AND (Col26 = '" & Z1 & "' OR LOWER(Col2) CONTAINS LOWER('" & Z1 & "'))", "") &
+                IF(LEN(TRIM(B2)) > 0, " AND (LOWER(Col2) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col3) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col5) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col6) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col11) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col12) CONTAINS LOWER('" & TRIM(B2) & "'))", "") &
+                " ORDER BY Col30 " & IF(AND(C1 = "👤 Requester", C2 = "👤 Creator"), "ASC", "DESC"),
+                0
+            ),
+            IF(
+                ISNUMBER(SEARCH("CL:", A1)),
+                QUERY(
+                    'SprintPlanning-Pipeline'!A2:AE,
+                    "SELECT * WHERE " & 
+                    "Col1 IS NOT NULL AND Col31 CONTAINS '" & TRIM(MID(A1, FIND(":", A1) + 1, LEN(A1))) & "'" &
+                    IF(C1 = "👤 Requester", "", " AND Col1 <> 'Ready to Launch'") &
+                    IF(C2 = "👤 Creator", "", " AND Col1 <> 'Ready to Launch'") &
+                    IF(C1 = "👤 Requester", "", " AND Col5 = '" & C1 & "'") &
+                    IF(C2 = "👤 Creator", "", " AND Col6 = '" & C2 & "'") &
+                    IF(Z1 <> "📺 Channel", " AND (Col26 = '" & Z1 & "' OR LOWER(Col2) CONTAINS LOWER('" & Z1 & "'))", "") &
+                    IF(LEN(TRIM(B2)) > 0, " AND (LOWER(Col2) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col3) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col5) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col6) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col11) CONTAINS LOWER('" & TRIM(B2) & "') OR LOWER(Col12) CONTAINS LOWER('" & TRIM(B2) & "'))", "") &
+                    " ORDER BY Col30 " & IF(AND(C1 = "👤 Requester", C2 = "👤 Creator"), "DESC", "ASC"),
+                    0
+                ),
+                ""
+            )
+        )
+    )
+)

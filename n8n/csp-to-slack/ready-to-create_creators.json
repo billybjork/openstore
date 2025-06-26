@@ -1,0 +1,43 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "👀  *{{ $json.jobName }}* is ready to create  {{ $json.brandEmoji }}"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "static_select",
+					"placeholder": {
+						"type": "plain_text",
+						"text": "Select a status",
+						"emoji": true
+					},
+					"options": [
+						{
+							"text": {
+								"type": "plain_text",
+								"text": "🧑‍💻 In Progress",
+								"emoji": true
+							},
+							"value": "in-progress"
+						},
+						{
+							"text": {
+								"type": "plain_text",
+								"text": "👀 Ready for Review",
+								"emoji": true
+							},
+							"value": "ready-for-review"
+						}
+					],
+					"action_id": "create-notification-status"
+				}
+			]
+		}
+	]
+}

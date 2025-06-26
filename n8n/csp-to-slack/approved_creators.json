@@ -1,0 +1,23 @@
+{
+    "blocks": [
+      {
+        "type": "section",
+        "block_id": "sectionBlockWithLinkButton",
+        "text": {
+          "type": "mrkdwn",
+          "text": "✅  Your *{{ $('Route notification 2').item.json.brandName }}* job has been approved  {{ $('Route notification 2').item.json.brandEmoji }}"
+        },
+        "accessory": {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "{{ $('Route notification 2').item.json.jobName }}",
+            "emoji": true
+          },
+          "value": "click_me_123",
+          "url": "{{ $('Route notification 2').item.json.reviewLink }}",
+          "action_id": "button-action"
+        }
+      }
+    ]
+  }

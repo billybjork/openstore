@@ -1,0 +1,20 @@
+={"🌐 Wins";
+  ARRAYFORMULA(
+    IF(ISBLANK(C2:C), "",
+      IF(
+        COUNTIFS(Census_Meta!M:M, C2:C, Census_Meta!U:U, "<>") > 0,
+        "🏆",
+        IF(
+          COUNTIFS(
+            Census_Meta!M:M, C2:C,
+            Census_Meta!U:U, "",
+            Census_Meta!T:T, "TRUE",
+            Census_Meta!D:D, ">=" & TEXT(TODAY()-30, "yyyy-mm-dd")
+          ) > 0,
+          "🎖️",
+          "✖️"
+        )
+      )
+    )
+  )
+}

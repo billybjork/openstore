@@ -1,0 +1,11 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":meow_bongo-keyboard: We've received your storefront support request!\n\nCheck out *<{{ $json.url }}|your request>* to add any additional information or attachments."
+			}
+		}
+	]
+}

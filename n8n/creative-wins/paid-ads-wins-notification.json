@@ -1,0 +1,194 @@
+{
+    "blocks": [
+        {
+            "type": "header",
+            "text": {
+                "type": "plain_text",
+                "text": "🏆 Creative Win for {{ $json.brandName }} {{ $json.brandEmoji }}",
+                "emoji": true
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "{{ $json.jobName }}",
+                        "emoji": true
+                    },
+                    "value": "click_me_123",
+                    "url": "{{ $json.creativeLink }}",
+                    "action_id": "button-action"
+                }
+            ]
+        },
+        {
+            "type": "rich_text",
+            "elements": [
+                {
+                    "type": "rich_text_list",
+                    "style": "bullet",
+                    "elements": [
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "🏷️ Winning Ad: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.winningVariant }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "👁️‍🗨️ Angle: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobAngle }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "💰 Spend: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobSpend }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "👀 Hook: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobHook }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "🖱️ CTR: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobCTR }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "💳 CVR: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobCVR }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "📊 ROAS: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobROAS }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "💲 CPA: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobCPA }}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "🆕 % Acquisition: ",
+                                    "style": {"bold": true}
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "{{ $json.jobAcquisition }}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*<{{ $json.adsManagerLink }}|🔗 Ads Manager Link>*"
+            }
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*<{{ $json.ctaLink }}|🔗 CTA Link>*"
+            }
+        },
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "plain_text",
+                    "text": "Requester: {{ $json.requesterName }}",
+                    "emoji": true
+                },
+                {
+                    "type": "plain_text",
+                    "text": "Creator: {{ $json.creatorName }}",
+                    "emoji": true
+                }
+            ]
+        }
+    ]
+}

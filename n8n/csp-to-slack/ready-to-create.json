@@ -1,0 +1,23 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"block_id": "sectionBlockWithLinkButton",
+			"text": {
+				"type": "mrkdwn",
+				"text": "{{ $json.formatEmoji }}  This *{{ $json.brandName }}* job is ready to create  {{ $json.brandEmoji }}"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "{{ $json.jobName }}",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"url": "https://docs.google.com/spreadsheets/d/1xG4s7C3jUo6iuZGiFUgP91QXVCmKXslyx4EY6hYkmKs/edit#gid=1057021105",
+				"action_id": "button-action"
+			}
+		}
+	]
+}

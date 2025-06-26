@@ -1,0 +1,45 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "{{ $json.brandEmoji }} New *{{ $json.brandName }}* content has been delivered:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "🎬 *Production:* {{ $json.productionName }}\n🙋*Creator:* {{ $json.creatorName }}"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "🔗 LucidLink",
+						"emoji": true
+					},
+					"value": "value-0",
+					"url": "{{ $json.lucidURL }}",
+					"action_id": "action1"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "🔗 Iconik",
+						"emoji": true
+					},
+					"value": "value-1",
+					"url": "{{ $json.iconikURL }}",
+					"action_id": "action2"
+				}
+			]
+		}
+	]
+}

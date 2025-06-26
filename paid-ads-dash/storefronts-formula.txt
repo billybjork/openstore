@@ -1,0 +1,26 @@
+=QUERY(
+  IF(B2, 'CTALinks-Helper'!A2:K, 'CTALinks-Helper_Non-SP'!A2:K),
+  "SELECT B, C, D, E, F, G, H, I WHERE " & 
+    IF(A1="💼 Brand", "1=1", 
+      IF(ISNUMBER(SEARCH("DRI:", A1)), 
+        "J = '" & VLOOKUP(A1, Data!C:E, 3, FALSE) & "'",
+        IF(ISNUMBER(SEARCH("CL:", A1)), 
+          "K = '" & VLOOKUP(A1, Data!C:F, 3, FALSE) & "'",
+          "A = '" & A1 & "'"
+        )
+      )
+    ) & 
+    IF(D1="CPA", " AND G IS NOT NULL ", "") &
+    " ORDER BY " & 
+    IF(D1="% Acquisition", "H", 
+      IF(D1="Spend", "D", 
+        IF(D1="CVR", "E", 
+          IF(D1="ROAS", "F", 
+            IF(D1="CPA", "G", "C")
+          )
+        )
+      )
+    ) & 
+    IF(D1="CPA", " ASC", " DESC"),
+  0
+)

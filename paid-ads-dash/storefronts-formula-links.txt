@@ -1,0 +1,34 @@
+=IF(I1 = "🔗 CTA Link", "Select a CTA link",
+  ARRAYFORMULA(
+    IFERROR(
+      FILTER(
+        {
+          IF(B2, '👋 Start Here'!C:C, 'Launched_Non-SP'!C:C),
+          IF(B2, '👋 Start Here'!D:D, 'Launched_Non-SP'!D:D),
+          IF(B2, '👋 Start Here'!Q:Q, 'Launched_Non-SP'!Q:Q),
+          IF(B2, '👋 Start Here'!M:M, 'Launched_Non-SP'!M:M),
+          IF(B2, '👋 Start Here'!AH:AH, 'Launched_Non-SP'!AH:AH),
+          IF(B2, '👋 Start Here'!AK:AK, 'Launched_Non-SP'!AJ:AJ),
+          IF(B2, '👋 Start Here'!AL:AL, 'Launched_Non-SP'!AK:AK),
+          IF(B2, '👋 Start Here'!AM:AM, 'Launched_Non-SP'!AL:AL),
+          IF(B2, '👋 Start Here'!AN:AN, 'Launched_Non-SP'!AM:AM),
+          IF(B2, '👋 Start Here'!AO:AO, 'Launched_Non-SP'!AN:AN),
+          IF(B2, '👋 Start Here'!AP:AP, 'Launched_Non-SP'!AO:AO),
+          IF(B2, '👋 Start Here'!Y:Y, 'Launched_Non-SP'!Y:Y),
+          IF(B2, '👋 Start Here'!AF:AF, 'Launched_Non-SP'!AF:AF)
+        },
+        (REGEXMATCH(
+           LOWER(IF(B2, '👋 Start Here'!AG:AG, 'Launched_Non-SP'!AG:AG)),
+           LOWER(".*"&I1&".*")
+         )) *
+        (IF(ISBLANK(K2), TRUE,
+           IF(B2, '👋 Start Here'!AE:AE, 'Launched_Non-SP'!AE:AE) >= DATEVALUE(K2)
+         )) *
+        (IF(ISBLANK(L2), TRUE,
+           IF(B2, '👋 Start Here'!AE:AE, 'Launched_Non-SP'!AE:AE) <= DATEVALUE(L2)
+         ))
+      ),
+      "No matching jobs found"
+    )
+  )
+)

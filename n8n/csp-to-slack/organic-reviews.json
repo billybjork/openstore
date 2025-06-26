@@ -1,0 +1,69 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "{{ $json.formatEmoji }}  *{{ $json.brandName }}*  {{ $json.brandEmoji }}"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "{{ $json.jobName }}",
+                        "emoji": true
+                    },
+                    "value": "click_me_123",
+                    "url": "{{ $json.reviewLink }}",
+                    "action_id": "button-action"
+                },
+                {
+                    "type": "static_select",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select a status",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "📝 Notes Given",
+                                "emoji": true
+                            },
+                            "value": "notes-given"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "✅ Approved",
+                                "emoji": true
+                            },
+                            "value": "approved"
+                        }
+                    ],
+                    "action_id": "review-notification"
+                }
+            ]
+        },
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "plain_text",
+                    "text": "Requester: {{ $json.requesterName }}",
+                    "emoji": true
+                },
+                {
+                    "type": "plain_text",
+                    "text": "Creator: {{ $json.creatorName }}",
+                    "emoji": true
+                }
+            ]
+        }
+    ]
+}

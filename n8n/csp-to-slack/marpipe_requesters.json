@@ -1,0 +1,69 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "Your Marpipe template request for *{{ $('Reset Values1').item.json.brandName }}* is ready for review {{ $('Reset Values1').item.json.brandEmoji }}"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "{{ $('Reset Values1').item.json.jobName }}",
+                        "emoji": true
+                    },
+                    "value": "click_me_123",
+                    "url": "https://app.marpipe.com/",
+                    "action_id": "button-action"
+                },
+                {
+                    "type": "static_select",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select a status",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "📝 Notes Given",
+                                "emoji": true
+                            },
+                            "value": "notes-given"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "✅ Approved",
+                                "emoji": true
+                            },
+                            "value": "approved"
+                        }
+                    ],
+                    "action_id": "review-notification"
+                }
+            ]
+        },
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "plain_text",
+                    "text": "Requester: {{ $('Reset Values1').item.json.requesterName }}",
+                    "emoji": true
+                },
+                {
+                    "type": "plain_text",
+                    "text": "Creator: {{ $('Reset Values1').item.json.creatorName }}",
+                    "emoji": true
+                }
+            ]
+        }
+    ]
+}

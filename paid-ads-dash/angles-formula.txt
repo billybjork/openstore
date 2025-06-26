@@ -1,0 +1,59 @@
+=QUERY(
+  {
+    UNIQUE(
+      FILTER(
+        '👋 Start Here'!M3:M,
+        '👋 Start Here'!M3:M <> "",
+        IF(
+          REGEXMATCH(A1, "DRI:"),
+          '👋 Start Here'!AX3:AX = TRIM(REGEXEXTRACT(A1, "DRI:\s*(.*)")),
+          IF(
+            REGEXMATCH(A1, "CL:"),
+            '👋 Start Here'!AY3:AY = TRIM(REGEXEXTRACT(A1, "CL:\s*(.*)")),
+            ('👋 Start Here'!E3:E = A1) + (A1 = "💼 Brand")
+          )
+        ),
+        (ISBLANK(B2) + ('👋 Start Here'!AE3:AE >= B2)),
+        (ISBLANK(B3) + ('👋 Start Here'!AE3:AE <= B3))
+      )
+    ),
+    ARRAYFORMULA(
+      COUNTIF(
+        FILTER(
+          '👋 Start Here'!M3:M,
+          '👋 Start Here'!M3:M <> "",
+          IF(
+            REGEXMATCH(A1, "DRI:"),
+            '👋 Start Here'!AX3:AX = TRIM(REGEXEXTRACT(A1, "DRI:\s*(.*)")),
+            IF(
+              REGEXMATCH(A1, "CL:"),
+              '👋 Start Here'!AY3:AY = TRIM(REGEXEXTRACT(A1, "CL:\s*(.*)")),
+              ('👋 Start Here'!E3:E = A1) + (A1 = "💼 Brand")
+            )
+          ),
+          (ISBLANK(B2) + ('👋 Start Here'!AE3:AE >= B2)),
+          (ISBLANK(B3) + ('👋 Start Here'!AE3:AE <= B3))
+        ),
+        UNIQUE(
+          FILTER(
+            '👋 Start Here'!M3:M,
+            '👋 Start Here'!M3:M <> "",
+            IF(
+              REGEXMATCH(A1, "DRI:"),
+              '👋 Start Here'!AX3:AX = TRIM(REGEXEXTRACT(A1, "DRI:\s*(.*)")),
+              IF(
+                REGEXMATCH(A1, "CL:"),
+                '👋 Start Here'!AY3:AY = TRIM(REGEXEXTRACT(A1, "CL:\s*(.*)")),
+                ('👋 Start Here'!E3:E = A1) + (A1 = "💼 Brand")
+              )
+            ),
+            (ISBLANK(B2) + ('👋 Start Here'!AE3:AE >= B2)),
+            (ISBLANK(B3) + ('👋 Start Here'!AE3:AE <= B3))
+          )
+        )
+      )
+    )
+  },
+  "SELECT Col1, Col2 WHERE Col2 IS NOT NULL ORDER BY Col2 DESC",
+  0
+)

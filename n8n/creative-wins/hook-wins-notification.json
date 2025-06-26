@@ -1,0 +1,111 @@
+{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": "🪝 Hook Win for {{ $json.brandName }} {{ $json.brandEmoji }}",
+				"emoji": true
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "{{ $json.jobName }}",
+						"emoji": true
+					},
+					"value": "click_me_123",
+					"url": "{{ $json.creativeLink }}",
+					"action_id": "button-action"
+				}
+			]
+		},
+		{
+			"type": "rich_text",
+			"elements": [
+				{
+					"type": "rich_text_list",
+					"style": "bullet",
+					"indent": 0,
+					"border": 0,
+					"elements": [
+						{
+							"type": "rich_text_section",
+							"elements": [
+								{
+									"type": "emoji",
+									"name": "label",
+									"unicode": "1f3f7-fe0f",
+									"style": {
+										"bold": true
+									}
+								},
+								{
+									"type": "text",
+									"text": " Winning Hook: ",
+									"style": {
+										"bold": true
+									}
+								},
+								{
+									"type": "text",
+									"text": "{{ $json.winningVariant }}"
+								}
+							]
+						},
+						{
+							"type": "rich_text_section",
+							"elements": [
+								{
+									"type": "emoji",
+									"name": "eyes",
+									"unicode": "1f440",
+									"style": {
+										"bold": true
+									}
+								},
+								{
+									"type": "text",
+									"text": " Hook Rate: ",
+									"style": {
+										"bold": true
+									}
+								},
+								{
+									"type": "text",
+									"text": "{{ $json.jobHook }}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*<{{ $json.adsManagerLink }}|🔗 Ads Manager Link>*"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "plain_text",
+					"text": "Requester: {{ $json.requesterName }}",
+					"emoji": true
+				},
+				{
+					"type": "plain_text",
+					"text": "Creator: {{ $json.creatorName }}",
+					"emoji": true
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "🚨🚨🚨🚨🚨 \n>*Error generating link for {{ $json["brandEmoji"]  }} {{ $json["jobName"] }} in the last 30 minutes.*"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":thinking_face: *Recommendations:*\n• Check your job's folder structure\n• Make sure the 'Exports' folder is present\n• Check the LucidLink file names\n• Upload assets to LucidLink"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":raising_hand: *Creator:* {{ $json.creatorName }}"
+			}
+		}
+	]
+}

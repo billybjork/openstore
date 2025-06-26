@@ -1,0 +1,25 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "We've received your Marpipe template request for *{{ $json.brandName }}*!  :inbox_tray:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Your request will be processed through <https://docs.google.com/spreadsheets/d/1xG4s7C3jUo6iuZGiFUgP91QXVCmKXslyx4EY6hYkmKs/edit#gid=414700308|Creative Sprint Planning>. The template will receive a job name, and you will be notified when it is ready for review. :working-on-it:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "To track performance results back to this template, *ensure the job name (template name) is included in the ad name* for any Marpipe ads launched using this template.  :bar_chart:"
+			}
+		}
+	]
+}

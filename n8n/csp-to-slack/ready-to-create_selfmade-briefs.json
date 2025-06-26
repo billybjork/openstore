@@ -1,0 +1,54 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "💡  This *{{ $json.brandName }}* brief is ready for review  {{ $json.brandEmoji }}"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "{{ $json.jobName }}",
+                        "emoji": true
+                    },
+                    "value": "click_me_123",
+                    "url": "{{ $json.reviewLink }}",
+                    "action_id": "button-action"
+                },
+                {
+                    "type": "static_select",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select a status",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":technologist: Ready to Create",
+                                "emoji": true
+                            },
+                            "value": "ready-to-create"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":memo: Notes Given",
+                                "emoji": true
+                            },
+                            "value": "notes-given"
+                        }
+                    ],
+                    "action_id": "review-notification-sm"
+                }
+            ]
+        }
+    ]
+}
