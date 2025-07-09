@@ -190,8 +190,8 @@ function winsTracker() {
   }
   
   function sendWinNotification(rowData, launchedSheet) {
-          // Test URL: "https://openstore.app.n8n.cloud/webhook-test/7be79308-58c6-4cfa-acd1-0c83877c4f46"
-    const webhookUrl = "https://openstore.app.n8n.cloud/webhook/7be79308-58c6-4cfa-acd1-0c83877c4f46";
+          // Test URL: "https://openstore.app.n8n.cloud/webhook-test/..."
+    const webhookUrl = "https://openstore.app.n8n.cloud/webhook/...";
     const columnsToInclude = ['A', 'C', 'D', 'F', 'G', 'L', 'X', 'AE', 'AF', 'AG', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AP'];
     
     const payload = {
@@ -399,8 +399,8 @@ function winsTracker() {
   }
   
   function sendHookWinNotification(rowData, launchedSheet) {
-          // Test URL: "https://openstore.app.n8n.cloud/webhook-test/7be79308-58c6-4cfa-acd1-0c83877c4f46"
-    const webhookUrl = "https://openstore.app.n8n.cloud/webhook/7be79308-58c6-4cfa-acd1-0c83877c4f46";
+          // Test URL: "https://openstore.app.n8n.cloud/webhook-test/..."
+    const webhookUrl = "https://openstore.app.n8n.cloud/webhook/...";
     const columnsToInclude = ['A', 'C', 'D', 'F', 'G', 'X', 'AE', 'AI', 'AM', 'AN'];
     
     const payload = {

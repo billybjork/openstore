@@ -13,7 +13,7 @@ function onOpen() {
   }
   
   function createPaidAdsDash() {
-    var dashboardTemplateId = '1PPSHf7-YK-I2TMJZLEWCoag-A_DeGPxvCdhb9k2n_ZM';
+    var dashboardTemplateId = '...';
     
     // Retrieve the name of the template and replace '[Template]' with '[YourName]'
     var templateName = DriveApp.getFileById(dashboardTemplateId).getName();

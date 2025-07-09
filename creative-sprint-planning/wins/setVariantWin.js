@@ -1,5 +1,5 @@
-var APP_ID = '996cbed4-5b15-11ef-999d-22fa5663fb11';
-var AUTH_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjliNjA1N2RjLTViMTUtMTFlZi04NWNiLWY2NDFmZTVjZjZiZCIsImV4cCI6MjAzOTE5MzM4M30.6o3dgRNSQcGLub2idv-UO_IOXLbBqfamxUnZ-7ftyyY';
+var APP_ID = '...';
+var AUTH_TOKEN = '...';
 
 var linkTitle = '';
 
@@ -16,7 +16,7 @@ function iconikSearch(query) {
         "App-Id": APP_ID,
         "Auth-Token": AUTH_TOKEN
     };
-    const payload = getSearchPayload(searchQuery, ["31903224-d103-11ee-96f0-fe87b7d5879c"], ["collections"]);
+    const payload = getSearchPayload(searchQuery, ["..."], ["collections"]);
 
     const options = {
         method: "post",
@@ -181,7 +181,7 @@ function generateLink(collectionId) {
         "allow_approving_comments": true,
         "allow_view_versions": true,
         "allow_view_transcriptions": true,
-        "upload_storage_id": "997d8538-3aa7-11ed-80fa-aed79c3ac367",
+        "upload_storage_id": "...",
         "allow_custom_actions": false,
         "allow_upload": false,
         "allow_setting_approve_status": false,
@@ -221,7 +221,7 @@ function generateCreativeLinkNotification(rowData, searchResult) {
     searchResult: searchResult
   });
 
-  const webhookUrl = 'https://openstore.app.n8n.cloud/webhook/419ab332-e545-413e-b284-96d9cb082676';
+      const webhookUrl = 'https://openstore.app.n8n.cloud/webhook/...';
 
   const options = {
     method: 'post',

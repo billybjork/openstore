@@ -29,7 +29,7 @@ const CONFIG = {
   // Webhook URL from n8n
   WEBHOOK_URL: "https://openstore.app.n8n.cloud/webhook/...",
   SEND_WEBHOOK_NOTIFICATIONS: true,
-  PRODUCTION_SPREADSHEET_ID: "1xG4s7C3jUo6iuZGiFUgP91QXVCmKXslyx4EY6hYkmKs", 
+  PRODUCTION_SPREADSHEET_ID: "...", 
   WEBHOOK_JOB_ID_COLUMN_INDEX: 21, 
 };
 

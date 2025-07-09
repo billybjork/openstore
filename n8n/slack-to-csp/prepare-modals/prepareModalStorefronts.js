@@ -54,7 +54,7 @@ blocks.push({
     type: "section",
     text: {
         type: "mrkdwn",
-        text: "This form will input your request into <https://app.clickup.com/12609248/ | 📋 Storefront Updates>."
+                    text: "This form will input your request into <https://app.clickup.com/... | 📋 Storefront Updates>."
     }
 });
 

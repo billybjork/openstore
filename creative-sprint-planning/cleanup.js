@@ -138,7 +138,7 @@ function sortExtraSheets() {
     var inProgressData = inProgressSheet.getDataRange().getValues();
     var helperDataRange = helperSheet.getRange("A3:A");
     var helperData = helperDataRange.getValues();
-    var webhookUrl = "https://openstore.app.n8n.cloud/webhook/9928e1e1-eaf0-45eb-95f2-53d15dd108f7";
+    var webhookUrl = "https://openstore.app.n8n.cloud/webhook/...";
   
     // Refresh helper data to ensure it's up-to-date before processing
     helperData = helperDataRange.getValues();
@@ -183,8 +183,8 @@ function sortExtraSheets() {
     // Prepare the payload as a JSON object
     const payload = JSON.stringify({data: data});
     
-          // Test URL: 'https://openstore.app.n8n.cloud/webhook-test/a5b44084-354e-4757-8451-9272e64bb302'
-    const webhookUrl = 'https://openstore.app.n8n.cloud/webhook/a5b44084-354e-4757-8451-9272e64bb302';
+          // Test URL: 'https://openstore.app.n8n.cloud/webhook-test/...'
+    const webhookUrl = 'https://openstore.app.n8n.cloud/webhook/...';
     
     const options = {
       'method' : 'post',
@@ -210,8 +210,8 @@ function sortExtraSheets() {
     // Prepare the payload as a JSON object
     const payload = JSON.stringify({data: data});
     
-          // Test URL: 'https://openstore.app.n8n.cloud/webhook-test/cdb6d48c-fcef-463c-8b5b-06c6e10344a2'
-    const webhookUrl = 'https://openstore.app.n8n.cloud/webhook/cdb6d48c-fcef-463c-8b5b-06c6e10344a2';
+          // Test URL: 'https://openstore.app.n8n.cloud/webhook-test/...'
+    const webhookUrl = 'https://openstore.app.n8n.cloud/webhook/...';
     
     const options = {
       'method' : 'post',
@@ -267,7 +267,7 @@ function sortExtraSheets() {
   }
   
   function syncLaunched() {
-    var sourceSpreadsheetId = '13Tn7LLK9UnVC_3YUWEskvkAnyfYJiXsoENGGaIgfdj8';
+    var sourceSpreadsheetId = '...';
     var sourceSheetName = 'Launched';
     var targetSheetName = '🌐 Launched';
   
@@ -303,7 +303,7 @@ function sortExtraSheets() {
   }
   
   function syncLaunchedNonSP() {
-    var sourceSpreadsheetId = '13Tn7LLK9UnVC_3YUWEskvkAnyfYJiXsoENGGaIgfdj8';
+    var sourceSpreadsheetId = '...';
     var sourceSheetName = 'Launched (non-SP)';
     var targetSheetName = '🌐 Launched (non-SP)';
   

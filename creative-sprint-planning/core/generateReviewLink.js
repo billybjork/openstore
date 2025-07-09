@@ -181,7 +181,7 @@ function generateLink(collectionId) {
         "allow_approving_comments": true,
         "allow_view_versions": true,
         "allow_view_transcriptions": true,
-        "upload_storage_id": "997d8538-3aa7-11ed-80fa-aed79c3ac367",
+        "upload_storage_id": "...",
         "allow_custom_actions": false,
         "allow_upload": false,
         "allow_setting_approve_status": false,

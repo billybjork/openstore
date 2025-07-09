@@ -21,7 +21,7 @@ blocks.push({
     type: "section",
     text: {
         type: "mrkdwn",
-        text: ":arrow_right: This form will input your request into <https://docs.google.com/spreadsheets/d/1xG4s7C3jUo6iuZGiFUgP91QXVCmKXslyx4EY6hYkmKs/edit?gid=162051327#gid=162051327 | Content Delivery>, then the content will be shared through #content-drops upon completion."
+            text: ":arrow_right: This form will input your request into <https://docs.google.com/spreadsheets/d/.../edit | Content Delivery>, then the content will be shared through #content-drops upon completion."
     }
 });
 

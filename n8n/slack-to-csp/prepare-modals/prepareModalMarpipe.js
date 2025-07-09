@@ -82,7 +82,7 @@ const payload = {
                 type: "section",
                 text: {
                     type: "mrkdwn",
-                    text: "*To request a new Marpipe template, you have two options:*\n1. Choose an option from our <https://docs.google.com/presentation/d/1R1ObhUcMCtnSlhboTiS0t8fjMKHP6AlBV0JD-_qsFN4/edit#slide=id.g1f0deebe882_0_2661|Catalog Template Menu> :label:\n2. Input your own reference link :bulb:\n"
+                    text: "*To request a new Marpipe template, you have two options:*\n1. Choose an option from our <https://docs.google.com/presentation/d/.../edit|Catalog Template Menu> :label:\n2. Input your own reference link :bulb:\n"
                 }
             },
             {
