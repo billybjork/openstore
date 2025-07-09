@@ -1,72 +1,121 @@
 # Creative Operations at OpenStore
 
-This repo represents all technical facets of our comprehensive system for tracking paid ads creation and performance at OpenStore
+This repository contains the technical components of a comprehensive system for tracking and managing paid advertising creative production and performance at OpenStore.
 
-Challenge was to scale our creative operation to deliver 150+ unique ad creatives per week across 40+ brands
+## Overview
 
-Major focus was automations to save time and invoke standardized next-steps based on ad performance
+Our challenge was to scale creative operations to deliver 150+ unique ad creatives per week across 40+ brands. These solutions focus on automation to save time and implement standardized workflows based on ad performance data.
 
-#### Components:
-- Central project management system, responsible for tracking projects in all stages, implementing naming convention, facilitating collaboration between strategists, editors, and designers (see [Creative Sprint Planning](./creative-sprint-planning/))
-- Automated Slack notifications triggered by status changes, allowing users to update project statuses from Slack (see [n8n](./n8n/))
-- Personal dashboards for browsing ads from entire brand portfolio that have been launched on both Meta and TikTok; filter by brand, creator, or other attributes; sort by metrics like Spend, CTR, ROAS, and more (see [paid-ads-dash](./paid-ads-dash/))
+## System Components
 
-#### Technical Features:
-- Google Sheets [Apps Script](https://developers.google.com/apps-script/guides/sheets) functions and triggers, and integrations with external APIs, such as [iconik](https://www.iconik.io/)
-- Node-based orchestration for various automations via [n8n](https://n8n.io/), including receiving and parsing webhook payloads from Google Sheets Apps Script and Slack
-- Daily data refreshes for platform metrics from Meta and TikTok (see [snowflake](./snowflake/))
+### Creative Sprint Planning
+Central project management system that tracks projects through all stages, implements naming conventions, and facilitates collaboration between strategists, editors, and designers.
+- **Location**: [`creative-sprint-planning/`](./creative-sprint-planning/)
 
-***
+### Automated Notifications
+Slack notifications triggered by status changes, allowing users to update project statuses directly from Slack messages.
+- **Location**: [`n8n/`](./n8n/)
 
-#### Step 1: Job Creation
-A creative project ("job") is added to the Creative Sprint Planning sheet, and its name is generated dynamically as the user inputs information
-After changing the status, an Apps Script function adds a job number by auto-incrementing (see [processRowMoves.js](./creative-sprint-planning/core/processRowMoves.js)) - supports batch job creation if needed
+### Performance Dashboard
+Personal dashboard for browsing ads from the entire brand portfolio launched on Meta and TikTok platforms. Users create their own copy, and can then can filter by brand, creator, or other attributes, and sort by metrics like Spend, CTR, ROAS, and more.
+- **Location**: [`paid-ads-dash/`](./paid-ads-dash/)
+
+## Technical Architecture
+
+- **Google Sheets Integration**: [Apps Script](https://developers.google.com/apps-script/guides/sheets) functions and triggers with external API integrations, including [iconik](https://www.iconik.io/)
+- **Workflow Orchestration**: Node-based automation via [n8n](https://n8n.io/), handling webhook payloads from Google Sheets Apps Script and Slack
+- **Data Pipeline**: Daily metric refreshes from Meta and TikTok platforms (see [`snowflake/`](./snowflake/))
+
+---
+
+## Workflow Steps
+
+### Step 1: Job Creation
+
+Creative projects ("jobs") are added to the Creative Sprint Planning sheet with dynamically generated names based on user input. When the status changes, an Apps Script function automatically assigns job numbers by auto-incrementing a brand-specific counter.
+
+- **Code**: [`processRowMoves.js`](./creative-sprint-planning/core/processRowMoves.js)
+- **Features**: Supports batch job creation
+
 ![Job naming automation](./assets/job-naming-automation.gif)
 
-#### Step 2: Review Link Generation
-After an editor/designer is assigned and has completed a first revision, they export to our media asset management system
-From there, a review link can be generated automatically by retrieving assets based on the job name (see [generateReviewLink.js](./creative-sprint-planning/core/generateReviewLink.js))
+### Step 2: Review Link Generation
+
+After an editor or designer completes the first revision, they export assets to our media asset management system. Review links are then generated automatically by retrieving assets based on the job name.
+
+- **Code**: [`generateReviewLink.js`](./creative-sprint-planning/core/generateReviewLink.js)
+
 ![Automatic review link generation](./assets/review-link-generation.gif)
 
-#### Step 3: Events in Google Sheet Trigger Slack Messages
-Google Sheets Apps Script sends payload to n8n, which extracts values and routes to proper Slack message
+### Step 3: Trigger Slack Notifications
+
+In response to project status changes, Google Sheets Apps Script sends payloads to n8n, which extracts values and routes them to the appropriate Slack messages.
+
 ![csp-to-slack nodes](./assets/n8n-csp-to-slack.png)
-See [csp-to-slack](n8n/csp-to-slack/) for JSON for building Slack messages
 
-#### Step 4: Interaction with Slack Messages
-Once notes have been provided on the initial creatives, the editor/designer receives a notification via Slack, allowing them to update the project status directly from Slack
+- **Configuration**: [`n8n/csp-to-slack/`](./n8n/csp-to-slack/) contains JSON files for building Slack messages
+
+### Step 4: Interactive Slack Messages
+
+When notes are provided on initial creatives, editors and designers receive Slack notifications that allow them to update project status directly from Slack.
+
 ![notes-given notification](./assets/notes-given.gif)
-There are many such interactive notifications like this - see [n8n/csp-to-slack](./n8n/csp-to-slack/)
 
-#### Step 5: Execute Actions Based on Slack Interactions
-Interactions with Slack messages send payloads to n8n, routing to proper actions in Google Sheets
-Example of user updating a project status directly out of Slack:
+Multiple interactive notification types are available in [`n8n/csp-to-slack/`](./n8n/csp-to-slack/).
+
+### Step 5: Processing Slack Interactions
+
+Slack message interactions send payloads to n8n, which routes them to appropriate actions in Google Sheets.
+
+**Example**: User updating project status directly from Slack:
+
 ![slack-notification-interaction](./assets/slack-notification-interaction.gif)
-n8n receives action payload from Slack, parse values, and update in Google Sheets:
-![slack-to-csp nodes](./assets/n8n-slack-to-csp.png)
-See [slack-to-csp](n8n/slack-to-csp/) for sample code from various nodes
 
-#### Step 6: Browse Metrics and Performance for Live Creative
-Once ads are approved and launched into the Meta or TikTok platform, their metrics become available in the Paid Ads Dash
+The n8n workflow receives action payloads from Slack, parses values, and updates Google Sheets:
+
+![slack-to-csp nodes](./assets/n8n-slack-to-csp.png)
+
+- **Code Samples**: [`slack-to-csp/`](./n8n/slack-to-csp/) contains sample code from various nodes
+
+### Step 6: Performance Analytics
+
+Once ads are approved and launched on Meta or TikTok platforms, their metrics become available in the Paid Ads Dashboard.
+
 ![paid-ads-dash demo](./assets/paid-ads-dash-demo.gif)
-Users can filter by:
+
+**Available Filters:**
 - Brand
 - Channel (Meta or TikTok)
-- Requester (i.e. strategist)
-- Creator (i.e. editor/designer)
-- Job Format (e.g. Video or Static)
-- Job Type (e.g. New, More, Fix, Adapt)
-- Date Range (i.e. date ad was launched)
-- Wins and Pre-Wins (internal criteria for top-performers)
-- Only live ads
-In addition to these filters, users can also enter arbitrary search queries, set a minimum spend, and sort by any specific metric (e.g. Spend, CTR, CVR, ROAS, etc.)
-See ![paid-ads-dash](./paid-ads-dash/) for formulas to build dash
+- Requester (strategist)
+- Creator (editor/designer)
+- Job Format (Video or Static)
+- Job Type (New, More, Fix, Adapt)
+- Date Range (launch date)
+- Wins and Pre-Wins (internal top-performer criteria)
+- Live ads only
 
-#### Step 7: Creative Wins Trigger Further Automations
-When an ad meets pre-defined internal criteria for becoming a "Win", various actions are triggered:
-- Automatically tag the asset as a "Win" in our media asset management system, to support easy filtering/browsing of creative Wins later on (see [setVariantWin.js](./creative-sprint-planning/wins/setVariantWin.js))
-- Trigger the creation of a new "Quickscale" job, a placeholder project to iterate on the win (see [wins.js](./creative-sprint-planning/wins/wins.js))
-- Send a notification to "#paid-ads-wins" (see [wins.js](./creative-sprint-planning/wins/wins.js) and [n8n/creative-wins](./n8n/creative-wins/)):
+**Additional Features:**
+- Input a specific search query
+- Set a minimum spend threshold
+- Sort by any metric (Spend, CTR, CVR, ROAS, etc.)
+
+**Implementation**: [`paid-ads-dash/`](./paid-ads-dash/) contains formulas for dashboard construction
+
+### Step 7: Automated Win Processing
+
+When ads meet predefined internal criteria for "Win" status, several automated actions are triggered:
+
+1. **Asset Tagging**: Automatically tags assets as "Wins" in the media asset management system for easy filtering
+   - **Code**: [`setVariantWin.js`](./creative-sprint-planning/wins/setVariantWin.js)
+
+2. **Quickscale Job Creation**: Creates placeholder projects to iterate on successful creatives
+   - **Code**: [`wins.js`](./creative-sprint-planning/wins/wins.js)
+
+3. **Team Notifications**: Sends notifications to the "#paid-ads-wins" Slack channel
+   - **Code**: [`wins.js`](./creative-sprint-planning/wins/wins.js) and [`n8n/creative-wins/`](./n8n/creative-wins/)
+
 ![paid-ads-wins nodes](./assets/n8n-paid-ads-wins.png)
-Example Slack notification (#paid-ads-wins):
+
+**Example Slack notification:**
+
 ![#paid-ads-wins notification example](./assets/paid-ads-wins-notification-2.png)
